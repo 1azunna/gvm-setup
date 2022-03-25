@@ -26,6 +26,6 @@ cmake "$SOURCE_DIR"/gvmd-"$GVMD_VERSION" \
   -DDEFAULT_CONFIG_DIR=/etc/default \
   -DLOGROTATE_DIR=/etc/logrotate.d && \
 make -j"$(nproc)" && \
-make DESTDIR="$INSTALL_DIR" install && \
-sudo cp -rv "$INSTALL_DIR"/* / | if [ $? -ne 0 ] ; then rsync -av --keep-dirlinks "$INSTALL_DIR"/* /
+make DESTDIR="$INSTALL_DIR" install
+sudo cp -rv "$INSTALL_DIR"/* / | if [ $? -ne 0 ] ; then rsync -av --keep-dirlinks "$INSTALL_DIR"/* / fi
 rm -rf "${INSTALL_DIR:?}"/*

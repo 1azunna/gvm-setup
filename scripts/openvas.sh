@@ -21,6 +21,6 @@ cmake "$SOURCE_DIR"/openvas-scanner-"$OPENVAS_SCANNER_VERSION" \
   -DOPENVAS_FEED_LOCK_PATH=/var/lib/openvas/feed-update.lock \
   -DOPENVAS_RUN_DIR=/run/ospd && \
 make -j$(nproc) && \
-make DESTDIR="$INSTALL_DIR" install && \
-sudo cp -rv "$INSTALL_DIR"/* / | if [ $? -ne 0 ] ; then rsync -av --keep-dirlinks "$INSTALL_DIR"/* /
+make DESTDIR="$INSTALL_DIR" install
+sudo cp -rv "$INSTALL_DIR"/* / | if [ $? -ne 0 ] ; then rsync -av --keep-dirlinks "$INSTALL_DIR"/* / fi
 rm -rf "${INSTALL_DIR:?}"/*

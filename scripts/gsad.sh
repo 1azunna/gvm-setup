@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 ######
 # Build the Greenbone Security Assistant Daemon
 ######
@@ -22,6 +20,6 @@ cmake "$SOURCE_DIR"/gsad-"$GSAD_VERSION" \
   -DGSAD_PID_DIR=/run/gvm \
   -DLOGROTATE_DIR=/etc/logrotate.d && \
 make -j"$(nproc)" && \
-make DESTDIR="$INSTALL_DIR" install && \
-sudo cp -rv "$INSTALL_DIR"/* / && \
+make DESTDIR="$INSTALL_DIR" install
+sudo cp -rv "$INSTALL_DIR"/* / | if [ $? -ne 0 ] ; then rsync -av --keep-dirlinks "$INSTALL_DIR"/* / fi
 rm -rf "${INSTALL_DIR:?}"/*
