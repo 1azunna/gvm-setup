@@ -17,5 +17,3 @@ mkdir -p "$BUILD_DIR"/gsa && cd "$BUILD_DIR"/gsa && \
 yarnpkg && yarnpkg build && \
 sudo mkdir -p "$INSTALL_PREFIX"/share/gvm/gsad/web/ && \
 sudo cp -r build/* "$INSTALL_PREFIX"/share/gvm/gsad/web/
-
-exit

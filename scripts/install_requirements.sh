@@ -32,5 +32,3 @@ fi
 curl -O https://www.greenbone.net/GBCommunitySigningKey.asc && \
 gpg --import GBCommunitySigningKey.asc
 echo -e "5\ny\n" |  gpg --command-fd 0 --expert --edit-key 9823FAA60ED1E580 trust
-
-exit

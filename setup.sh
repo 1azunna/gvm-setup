@@ -63,3 +63,5 @@ bash  "$DIR/scripts/postgres.sh"
 bash  "$DIR/scripts/gvm-feed.sh"
 # Start gvm services
 bash  "$DIR/scripts/gvm-services.sh"
+
+exit $?
