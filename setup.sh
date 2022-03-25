@@ -40,9 +40,9 @@ if [ $# > 1 ]; then
     SCRIPTS="$DIR/scripts/*"
     for f in $SCRIPTS 
     do
-        if [ $2 == "$(basename $DIR/scripts/$f)" ]; then
+        if $2 == $(basename $DIR/scripts/$f) ; then
             bash "$DIR/scripts/$f";
-            exit
+            break
         fi
     done
 else 
