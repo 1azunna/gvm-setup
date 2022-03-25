@@ -1,12 +1,12 @@
 #!/bin/bash
 
-GVM_VERSION=$1
-
-if [[ -n "$GVM_VERSION" ]]; then
+if [[ -n "$1" ]]; then
     export GVM_VERSION="21.4.4"
+else
+    GVM_VERSION=$1
 fi
 
-if [[ "$GVM_VERSION" == "21.4.3" ]] || [[ "$GVM_VERSION" == "21.4.4" ]]; then
+if ! [[ "$GVM_VERSION" == "21.4.3" ]] || [[ "$GVM_VERSION" == "21.4.4" ]]; then
     echo "WARNING!!! Using an untested version of GVM with this script."
 fi
 
