@@ -6,8 +6,6 @@ if [[ -n "$GVM_VERSION" ]]; then
     export GVM_VERSION="21.4.4"
 fi
 
-set -u
-
 if [[ "$GVM_VERSION" == "21.4.3" ]] || [[ "$GVM_VERSION" == "21.4.4" ]]; then
     echo "WARNING!!! Using an untested version of GVM with this script."
 fi
@@ -39,6 +37,8 @@ export INSTALL_DIR=$HOME/install && mkdir -p "$INSTALL_DIR"
 
 # Setup Requirements
 bash  "$DIR/scripts/install_requirements.sh"
+
+set -eu
 # Install gvm-libs
 bash  "$DIR/scripts/gvm-libs.sh"
 # Install gvmd
