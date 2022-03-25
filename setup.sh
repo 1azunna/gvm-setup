@@ -2,17 +2,17 @@
 
 GVM_VERSION=$1
 
-if [[ -n "$GVM_VERSION" ]]; then
+if [ -n "$GVM_VERSION" ]; then
     export GVM_VERSION="21.4.4"
 fi
 
 set -eu
 
-if [[ "$GVM_VERSION" == "21.4.3" ]] || [[ "$GVM_VERSION" == "21.4.4" ]]; then
+if [ "$GVM_VERSION" == "21.4.3" ] || [ "$GVM_VERSION" == "21.4.4" ]; then
     echo "WARNING!!! Using an untested version of GVM with this script."
 fi
 
-if [[ "$UID" -eq 0 ]]; then
+if [ "$UID" -eq 0 ]; then
     echo "This setup should not be run as root. Ensure user has sudo access."
     exit 1
 fi
