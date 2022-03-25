@@ -36,7 +36,7 @@ export INSTALL_DIR=$HOME/install && mkdir -p "$INSTALL_DIR"
 # fi
 
 # Run specific scripts
-if [ $# -eq 0 ]; then
+if [ $# -gt 0 ]; then
     SCRIPTS="$DIR/scripts/*"
     for f in $SCRIPTS 
     do
