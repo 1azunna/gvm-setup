@@ -13,7 +13,7 @@ gpg --verify "$SOURCE_DIR"/gsa-"$GSA_VERSION".tar.gz.asc "$SOURCE_DIR"/gsa-"$GSA
 
 
 tar -C "$SOURCE_DIR" -xvzf "$SOURCE_DIR"/gsa-"$GSA_VERSION".tar.gz && \
-mkdir -p "$BUILD_DIR"/gsa && cd "$BUILD_DIR"/gsa && \
+cd "$SOURCE_DIR"/gsa-"$GSA_VERSION" && \
 [ -d "./build" ] && rm -rf build 
 yarnpkg 
 yarnpkg build
