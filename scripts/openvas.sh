@@ -22,5 +22,5 @@ cmake "$SOURCE_DIR"/openvas-scanner-"$OPENVAS_SCANNER_VERSION" \
   -DOPENVAS_RUN_DIR=/run/ospd && \
 make -j$(nproc) && \
 make DESTDIR="$INSTALL_DIR" install && \
-sudo cp -rv "${INSTALL_DIR:?}"/* / && \
+sudo cp -rv "$INSTALL_DIR"/* / && \
 rm -rf "${INSTALL_DIR:?}"/*

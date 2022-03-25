@@ -22,5 +22,5 @@ cmake "$SOURCE_DIR"/gvm-libs-"$GVM_LIBS_VERSION" \
   -DGVM_PID_DIR=/run/gvm && \
 make -j"$(nproc)" && \
 make DESTDIR="$INSTALL_DIR" install && \
-sudo cp -rv "${INSTALL_DIR:?}"/* / && \
+sudo cp -rv "$INSTALL_DIR"/* / && \
 rm -rf "${INSTALL_DIR:?}"/*

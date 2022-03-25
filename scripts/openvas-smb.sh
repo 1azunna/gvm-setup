@@ -19,5 +19,5 @@ cmake "$SOURCE_DIR"/openvas-smb-"$OPENVAS_SMB_VERSION" \
   -DCMAKE_BUILD_TYPE=Release && \
 make -j$(nproc) && \
 make DESTDIR="$INSTALL_DIR" install && \
-sudo cp -rv "${INSTALL_DIR:?}"/* / && \
+sudo cp -rv "$INSTALL_DIR"/* / && \
 rm -rf "${INSTALL_DIR:?}"/*
