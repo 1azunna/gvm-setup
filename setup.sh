@@ -6,7 +6,7 @@ else
     GVM_VERSION=$1
 fi
 
-if [[ "$GVM_VERSION" -ne "21.4.3" ]] || [[ "$GVM_VERSION" -ne "21.4.4" ]]; then
+if [ "$GVM_VERSION" != "21.4.3" ] && [ "$GVM_VERSION" != "21.4.4" ]; then
     echo "WARNING!!! Using an untested version of GVM with this script."
 fi
 
@@ -40,7 +40,7 @@ if [ $# -eq 0 ]; then
     SCRIPTS="$DIR/scripts/*"
     for f in $SCRIPTS 
     do
-        if [[ $2 -eq "$(basename $f)" ]]; then
+        if [[ $2 == "$(basename $f)" ]]; then
             bash "$DIR/scripts/$f"
             exit
         fi
