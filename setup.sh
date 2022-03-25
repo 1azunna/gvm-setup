@@ -8,11 +8,11 @@ fi
 
 set -eu
 
-if [[ "$GVM_VERSION" == "21.4.3" ]] || [[ "$GVM_VERSION" == "21.4.4"]]; then
+if [[ "$GVM_VERSION" == "21.4.3" ]] || [[ "$GVM_VERSION" == "21.4.4" ]]; then
     echo "WARNING!!! Using an untested version of GVM with this script."
 fi
 
-if [[ "$EUID" -eq 0 ]]; then
+if [[ "$UID" -eq 0 ]]; then
     echo "This setup should not be run as root. Ensure user has sudo access."
     exit 1
 fi
@@ -30,51 +30,28 @@ export BUILD_DIR=$HOME/build && mkdir -p "$BUILD_DIR"
 export INSTALL_DIR=$HOME/install && mkdir -p "$INSTALL_DIR"
 
 # Setup Requirements
-sudo /bin/su -c "$DIR/scripts/install_reuirements.sh" - gvm
+sudo su gvm -s $DIR/scripts/install_reuirements.sh
 # Install gvm-libs
-sudo /bin/su -c "$DIR/scripts/gvm-libs.sh" - gvm
+sudo su gvm -s $DIR/scripts/gvm-libs.sh
 # Install gvmd
-sudo /bin/su -c "$DIR/scripts/gvmd.sh" - gvm
+sudo su gvm -s $DIR/scripts/gvmd.sh
 # Install gsa
-sudo /bin/su -c "$DIR/scripts/gsa.sh" - gvm
+sudo su gvm -s $DIR/scripts/gsa.sh
 # Install gsad
-sudo /bin/su -c "$DIR/scripts/gsad.sh" - gvm
+sudo su gvm -s $DIR/scripts/gsad.sh
 # Install openvas-smb
-sudo /bin/su -c "$DIR/scripts/openvas-smb.sh" - gvm
+sudo su gvm -s $DIR/scripts/openvas-smb.sh
 # Install openvas-scanner
-sudo /bin/su -c "$DIR/scripts/openvas.sh" - gvm
+sudo su gvm -s $DIR/scripts/openvas.sh
 # Install ospd-openvas
-sudo /bin/su -c "$DIR/scripts/ospd.sh" - gvm
+sudo su gvm -s $DIR/scripts/ospd.sh
 # Install gvm-tools
-sudo /bin/su -c "$DIR/scripts/gvm-tools.sh" - gvm
+sudo su gvm -s $DIR/scripts/gvm-tools.sh
 # Install redis
-sudo /bin/su -c "$DIR/scripts/redis.sh" - gvm
+sudo su gvm -s $DIR/scripts/redis.sh
 # Install postgres
-sudo /bin/su -c "$DIR/scripts/postgres.sh" - gvm
+sudo su gvm -s $DIR/scripts/postgres.sh
 # Download gvm feed
-sudo /bin/su -c "$DIR/scripts/gvm-feed.sh" - gvm
+sudo su gvm -s $DIR/scripts/gvm-feed.sh
 # Start gvm services
-sudo /bin/su -c "$DIR/scripts/gvm-services.sh" - gvm
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+sudo su gvm -s $DIR/scripts/gvm-services.sh
