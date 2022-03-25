@@ -22,5 +22,5 @@ cmake "$SOURCE_DIR"/gvm-libs-"$GVM_LIBS_VERSION" \
   -DGVM_PID_DIR=/run/gvm && \
 make -j"$(nproc)" && \
 make DESTDIR="$INSTALL_DIR" install
-sudo cp -rv "$INSTALL_DIR"/* / | if [ $? -ne 0 ] ; then rsync -av --keep-dirlinks "$INSTALL_DIR"/* / fi
+sudo cp -rv "$INSTALL_DIR"/* / | if [ $? -ne 0 ] ; then rsync -av --keep-dirlinks "$INSTALL_DIR"/* /; fi
 rm -rf "${INSTALL_DIR:?}"/*
