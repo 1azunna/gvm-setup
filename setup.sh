@@ -35,9 +35,20 @@ export INSTALL_DIR=$HOME/install && mkdir -p "$INSTALL_DIR"
 #     echo "gvm ALL=NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 # fi
 
+# Run specific scripts
+if [ $# -eq 0 ]; then
+    SCRIPTS="$DIR/scripts/*"
+    for f in $SCRIPTS 
+    do
+        if [[ $2 -eq "$(basename $f)" ]]; then
+            bash "$DIR/scripts/$f"
+            exit
+        fi
+    done
+fi
+
 # Setup Requirements
 bash  "$DIR/scripts/install_requirements.sh"
-
 set -eu
 # Install gvm-libs
 bash  "$DIR/scripts/gvm-libs.sh"
