@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -u
+set -eu
 
 export DEBIAN_FRONTEND=noninteractive
 # Install common dependencies
@@ -18,6 +18,7 @@ sudo apt install -y libglib2.0-dev libgpgme-dev libgnutls28-dev uuid-dev libssh-
     fakeroot dpkg nsis gnupg gpgsm sshpass openssh-client socat snmp smbclient python3-lxml gnutls-bin xml-twig-tools libsnmp-dev \
     python3-setuptools python3-packaging python3-wrapt python3-cffi python3-psutil python3-defusedxml python3-paramiko python3-redis
 
+set -u
 #support for Debian and ubuntu versions
 sudo apt install -y python3-impacket
 if [ $? -ne 0 ]; then
