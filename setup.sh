@@ -30,7 +30,7 @@ export BUILD_DIR=$HOME/build && mkdir -p "$BUILD_DIR"
 export INSTALL_DIR=$HOME/install && mkdir -p "$INSTALL_DIR"
 
 # Setup Requirements
-sudo su gvm -s $DIR/scripts/install_reuirements.sh
+sudo su gvm -s $DIR/scripts/install_requirements.sh
 # Install gvm-libs
 sudo su gvm -s $DIR/scripts/gvm-libs.sh
 # Install gvmd
