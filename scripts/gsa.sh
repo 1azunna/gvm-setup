@@ -14,6 +14,8 @@ gpg --verify "$SOURCE_DIR"/gsa-"$GSA_VERSION".tar.gz.asc "$SOURCE_DIR"/gsa-"$GSA
 
 tar -C "$SOURCE_DIR" -xvzf "$SOURCE_DIR"/gsa-"$GSA_VERSION".tar.gz && \
 mkdir -p "$BUILD_DIR"/gsa && cd "$BUILD_DIR"/gsa && \
-yarnpkg && yarnpkg build && \
+[ -d "./build" ] && rm -rf build 
+yarnpkg 
+yarnpkg build
 sudo mkdir -p "$INSTALL_PREFIX"/share/gvm/gsad/web/ && \
 sudo cp -r build/* "$INSTALL_PREFIX"/share/gvm/gsad/web/
