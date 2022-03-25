@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -e
 
 sudo -u gvm greenbone-nvt-sync
 sudo -u gvm greenbone-feed-sync --type GVMD_DATA

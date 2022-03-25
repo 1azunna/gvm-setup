@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -e
 ######
 # Build ospd and ospd-openvas
 #####

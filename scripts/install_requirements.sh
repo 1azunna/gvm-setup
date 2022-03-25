@@ -3,6 +3,9 @@
 set -eu
 
 export DEBIAN_FRONTEND=noninteractive
+
+sudo locale-gen en_US.UTF-8
+export LC_ALL="C"
 # Install common dependencies
 sudo apt update && \
 sudo apt install --no-install-recommends -y build-essential curl wget cmake pkg-config python3 python3-pip gnupg 
