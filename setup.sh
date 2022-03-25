@@ -17,6 +17,8 @@ if [[ "$UID" -eq 0 ]]; then
     exit 1
 fi
 
+echo "export GVM_VERSION=$GVM_VERSION" >> ~/.bashrc
+
 DIR=$(pwd)
 
 # Setup GVM Install paths
@@ -30,34 +32,34 @@ export BUILD_DIR=$HOME/build && mkdir -p "$BUILD_DIR"
 export INSTALL_DIR=$HOME/install && mkdir -p "$INSTALL_DIR"
 
 # Give no password access to gvm
-sudo cat /etc/sudoers | grep "gvm ALL=NOPASSWD:ALL"
-if [ $? -ne 0 ]; then
-    echo "gvm ALL=NOPASSWD:ALL" | sudo tee -a /etc/sudoers
-fi
+# sudo cat /etc/sudoers | grep "gvm ALL=NOPASSWD:ALL"
+# if [ $? -ne 0 ]; then
+#     echo "gvm ALL=NOPASSWD:ALL" | sudo tee -a /etc/sudoers
+# fi
 
 # Setup Requirements
 bash  "$DIR/scripts/install_requirements.sh"
 # Install gvm-libs
-sudo -u gvm  "$DIR/scripts/gvm-libs.sh"
+bash  "$DIR/scripts/gvm-libs.sh"
 # Install gvmd
-sudo -u gvm  "$DIR/scripts/gvmd.sh"
+bash  "$DIR/scripts/gvmd.sh"
 # Install gsa
-sudo -u gvm  "$DIR/scripts/gsa.sh"
+bash  "$DIR/scripts/gsa.sh"
 # Install gsad
-sudo -u gvm  "$DIR/scripts/gsad.sh"
+bash  "$DIR/scripts/gsad.sh"
 # Install openvas-smb
-sudo -u gvm  "$DIR/scripts/openvas-smb.sh"
+bash  "$DIR/scripts/openvas-smb.sh"
 # Install openvas-scanner
-sudo -u gvm  "$DIR/scripts/openvas.sh"
+bash  "$DIR/scripts/openvas.sh"
 # Install ospd-openvas
-sudo -u gvm  "$DIR/scripts/ospd.sh"
+bash  "$DIR/scripts/ospd.sh"
 # Install gvm-tools
-sudo -u gvm  "$DIR/scripts/gvm-tools.sh"
+bash  "$DIR/scripts/gvm-tools.sh"
 # Install redis
-sudo -u gvm  "$DIR/scripts/redis.sh"
+bash  "$DIR/scripts/redis.sh"
 # Install postgres
-sudo -u gvm  "$DIR/scripts/postgres.sh"
+bash  "$DIR/scripts/postgres.sh"
 # Download gvm feed
-sudo -u gvm  "$DIR/scripts/gvm-feed.sh"
+bash  "$DIR/scripts/gvm-feed.sh"
 # Start gvm services
-sudo -u gvm  "$DIR/scripts/gvm-services.sh"
+bash  "$DIR/scripts/gvm-services.sh"
