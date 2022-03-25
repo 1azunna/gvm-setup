@@ -36,14 +36,19 @@ export INSTALL_DIR=$HOME/install && mkdir -p "$INSTALL_DIR"
 # fi
 
 # Run specific scripts
-SCRIPTS="$DIR/scripts/*"
-for f in $SCRIPTS 
-do
-    if [[ $2 == "$(basename $f)" ]]; then
-        bash "$DIR/scripts/$f"
-        exit
-    fi
-done
+if [ $# > 1 ]; then
+    SCRIPTS="$DIR/scripts/*"
+    for f in $SCRIPTS 
+    do
+        if [[ $2 == "$(basename $f)" ]]; then
+            bash "$DIR/scripts/$f";
+            exit
+        fi
+    done
+else 
+    echo "Invalid script"
+    exit 1
+fi
 
 # Setup Requirements
 bash  "$DIR/scripts/install_requirements.sh"
