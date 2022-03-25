@@ -30,11 +30,10 @@ export BUILD_DIR=$HOME/build && mkdir -p "$BUILD_DIR"
 export INSTALL_DIR=$HOME/install && mkdir -p "$INSTALL_DIR"
 
 # Give no password access to gvm
-sudo cat /etc/sudoers | grep "%gvm ALL="
+sudo cat /etc/sudoers | grep "gvm ALL=NOPASSWD:ALL"
 if [ $? -ne 0 ]; then
-    echo "%gvm ALL = NOPASSWD: $DIR/scripts/*, /usr/local/sbin/openvas" | sudo tee -a /etc/sudoers
+    echo "gvm ALL=NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 fi
-
 
 # Setup Requirements
 sudo -u gvm  "$DIR/scripts/install_requirements.sh"
