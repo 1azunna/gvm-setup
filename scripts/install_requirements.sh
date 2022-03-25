@@ -2,6 +2,7 @@
 
 set -u
 
+export DEBIAN_FRONTEND=noninteractive
 # Install common dependencies
 sudo apt update && \
 sudo apt install --no-install-recommends -y build-essential curl wget cmake pkg-config python3 python3-pip gnupg 

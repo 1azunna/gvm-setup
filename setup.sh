@@ -36,7 +36,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Setup Requirements
-sudo -u gvm  "$DIR/scripts/install_requirements.sh"
+bash  "$DIR/scripts/install_requirements.sh"
 # Install gvm-libs
 sudo -u gvm  "$DIR/scripts/gvm-libs.sh"
 # Install gvmd
