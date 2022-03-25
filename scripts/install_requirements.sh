@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -u
 
 # Install common dependencies
 sudo apt update && \

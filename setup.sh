@@ -6,7 +6,7 @@ if [[ -n "$GVM_VERSION" ]]; then
     export GVM_VERSION="21.4.4"
 fi
 
-set -eu
+set -u
 
 if [[ "$GVM_VERSION" == "21.4.3" ]] || [[ "$GVM_VERSION" == "21.4.4" ]]; then
     echo "WARNING!!! Using an untested version of GVM with this script."
