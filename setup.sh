@@ -29,7 +29,8 @@ export SOURCE_DIR=$HOME/source && mkdir -p "$SOURCE_DIR"
 export BUILD_DIR=$HOME/build && mkdir -p "$BUILD_DIR"
 export INSTALL_DIR=$HOME/install && mkdir -p "$INSTALL_DIR"
 
-echo "$USER ALL=(gvm) NOPASSWD: $DIR/scripts/*" | sudo tee -a /etc/sudoers
+# Give no password access to run scripts
+echo "gvm ALL=(ALL) NOPASSWD: $DIR/scripts/*" | sudo tee -a /etc/sudoers
 
 # Setup Requirements
 sudo -u gvm  "$DIR/scripts/install_requirements.sh"
