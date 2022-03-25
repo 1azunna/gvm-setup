@@ -19,3 +19,5 @@ echo "/usr/local/bin/greenbone-nvt-sync
 /usr/local/bin/greenbone-feed-sync --type CERT" | sudo tee -a /usr/local/bin/openvas-update
 
 (crontab -l 2>/dev/null || true; echo "0 0 * * * gvm /usr/local/bin/openvas-update") | crontab -
+
+exit

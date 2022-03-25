@@ -86,3 +86,5 @@ sudo systemctl enable gsad
 sudo systemctl start ospd-openvas
 sudo systemctl start gvmd
 sudo systemctl start gsad
+
+exit

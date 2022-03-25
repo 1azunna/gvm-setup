@@ -18,3 +18,5 @@ sudo ldconfig
 # export ADMIN_PASSWORD=$(gvmd --create-user=admin)
 gvmd --create-user=admin --password=admin
 gvmd --modify-setting 78eceaec-3385-11ea-b237-28d24461215b --value `gvmd --get-users --verbose | grep admin | awk '{print $2}'`
+
+exit

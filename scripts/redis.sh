@@ -31,3 +31,5 @@ sudo chmod 740 /usr/local/sbin/greenbone-*-sync
 
 echo "# allow users of the gvm group run openvas
 %gvm ALL = NOPASSWD: /usr/local/sbin/openvas" | sudo tee -a /etc/sudoers
+
+exit

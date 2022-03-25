@@ -30,4 +30,4 @@ make DESTDIR="$INSTALL_DIR" install && \
 sudo cp -rv "${INSTALL_DIR:?}"R/* / && \
 rm -rf "${INSTALL_DIR:?}"/*
 
-cd ~
+exit

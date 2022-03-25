@@ -16,4 +16,4 @@ python3 -m pip install . --prefix="$INSTALL_PREFIX" --root="$INSTALL_DIR" --no-w
 sudo cp -rv "${INSTALL_DIR:?}"/* / && \
 rm -rf "${INSTALL_DIR:?}"/*
 
-cd ~
+exit
